@@ -1,0 +1,23 @@
+{
+  "name": "bootstrap-fresh",
+  "version": "1.0.0",
+  "description": "Bootstrap Starter File\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C 4 Starter File",
+  "main": "index.js",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "bootstrap": "^4.5.3",
+    "browser-sync": "^2.26.13",
+    "font-awesome": "^4.7.0",
+    "fontawesome": "^5.6.3",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sadman Jahin",
+  "license": "MIT"
+}

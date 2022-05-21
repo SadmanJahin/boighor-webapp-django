@@ -1,0 +1,86 @@
+{%extends 'layout-header-footer.html'%}
+
+{%load static%}
+
+
+{%block content%}
+  
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+
+
+<!-- partial:index.partial.html -->
+<div class="container c">
+ <div class="row" id="customForm">
+    <div class="col-md-3"></div>
+     <div class="col-md-5 ml-5 mt-4">
+ 
+	
+	<form id="form" class="f mt-5" action="" method="post">
+      {% csrf_token %}
+	  <div class="h3 mb-4" style="text-align: center; font-weight: bold;">Login</div>
+		<div class="fm mt-4">
+			<label for="phone">Phone</label>
+			<input type="text" placeholder="Enter 11 Digit Phone Number" id="phone" name="phone" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		
+		
+		<div class="fm">
+			<label for="username">Password</label>
+			<input type="password" placeholder="Enter Your Password" id="password" name="password"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		
+		<button class="btn btn-success">Login</button>
+		<div class="mt-2" style="text-align: center"> Dont have a account ? <a class="text-danger" href="{% url 'registration' %}">Sign Up</a> </div>
+     <div class="mt-1" style="text-align: center">  <a class="text-danger">Forget Password</a> </div>
+	</form>
+	</div>
+</div>
+</div>
+
+
+
+
+
+<!-- partial -->
+
+
+<script>
+var verificationError = {{verificationFailed|yesno:"true,false"}};
+
+    if(verificationError)
+    {
+setErrorFor(phone, 'Phone does not match.');
+setErrorFor(password, 'Password does not match.');
+    }
+    
+    function setErrorFor(input, message) {
+	const formControl = input.parentElement;
+	const small = formControl.querySelector('small');
+	formControl.className = 'fm error';
+	small.innerText = message;
+}
+
+function setSuccessFor(input) {
+	const formControl = input.parentElement;
+	formControl.className = 'fm success';
+}
+    
+</script>
+
+<script src="{% static 'js/login.js' %}">
+ 
+
+
+
+
+</script>
+
+
+{%endblock%}

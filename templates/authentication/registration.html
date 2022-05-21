@@ -1,0 +1,104 @@
+{%extends 'layout-header-footer.html'%}
+
+{%load static%}
+
+
+{%block content%}
+  
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+
+
+<!-- partial:index.partial.html -->
+<div class="container c">
+ <div class="row" id="customForm">
+    <div class="col-md-3"></div>
+     <div class="ml-5 mt-4">
+ 
+	
+	<form id="form" class="f mt-5" action="" method="post">
+       {%csrf_token%}
+	  <div class="h3 mb-4" style="text-align: center; font-weight: bold;">Create Your Boighor Account</div>
+		<div class="fm mt-4">
+			<label for="username">Username</label>
+			<input type="text" placeholder="Name" name="username" id="username" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="fm">
+			<label for="username">Email</label>
+			<input type="email" placeholder="a@example-pop.com" name="email" id="email" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="fm">
+			<label for="phone">Phone</label>
+			<input type="text" placeholder="Enter 11 Digit Phone  Number" name="phone" id="phone" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="fm">
+			<label for="username">Password</label>
+			<input type="password" placeholder="Enter Your Password" name="password" id="password"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="fm">
+			<label for="username">Password Check</label>
+			<input type="password" placeholder="Enter Your Password Again" id="password2"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<button class="btn btn-success">Submit</button>
+		<div class="mt-2" style="text-align: center"> Already have a account ? <a href="/authentication/" class="text-danger"> Login</a> </div>
+	</form>
+	</div>
+</div>
+</div>
+
+
+<!-- SOCIAL PANEL HTML -->
+
+
+<!-- partial -->
+
+<script>
+var emailExist = {{emailExist|yesno:"true,false"}};
+var phoneExist = {{phoneExist|yesno:"true,false"}};
+
+    if(phoneExist)
+    {
+setErrorFor(phone, 'Phone already exist.');
+    }
+    if(emailExist)
+    {
+setErrorFor(email, 'Email already exist.');
+    }
+    
+    function setErrorFor(input, message) {
+	const formControl = input.parentElement;
+	const small = formControl.querySelector('small');
+	formControl.className = 'fm error';
+	small.innerText = message;
+}
+
+function setSuccessFor(input) {
+	const formControl = input.parentElement;
+	formControl.className = 'fm success';
+}
+    
+</script>
+<script src="{% static 'js/registration.js' %}">
+
+
+
+
+
+</script>
+
+{%endblock%}
